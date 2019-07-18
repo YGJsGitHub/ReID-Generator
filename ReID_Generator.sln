@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReID_Generator", "ReID_Generator.csproj", "{65039CF7-481C-4E7F-8A59-13F40DA4F817}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65039CF7-481C-4E7F-8A59-13F40DA4F817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65039CF7-481C-4E7F-8A59-13F40DA4F817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65039CF7-481C-4E7F-8A59-13F40DA4F817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65039CF7-481C-4E7F-8A59-13F40DA4F817}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48470342-B497-43BE-90A1-C14E3F844986}
+	EndGlobalSection
+EndGlobal
