@@ -1,6 +1,6 @@
 # ReID-Generator #
 
-ReID(**Pesron Re-Identify**) Generator is a tool for generating ReID image datasets in GTA V. It's a custom mod of GTAV, written in **C#**
+ReID(**Pesron Re-Identify**) Generator is a tool for generating ReID image datasets in GTA V. It's a custom mod of GTAV, written in **C#**.
 
 It can generate images of people with more than 700 original models, 7 weather, 7 lighting, custom angles, multiple scenes, and multiple actions.
 
@@ -38,7 +38,7 @@ You can also add additional character models and generate their image.
 
 5. Select the path where you want to save the image, and copy it in `TODO.cs` line `TODO`.
 
-	The datasets will be saved in path in format:`XXXX/XXXX\_CXX\_WXX\_\LXX.jpg`.
+	The datasets will be saved in path in format:`XXXX/XXXX_CXX_WXX_LXX.jpg`.
 
 
 	-  `XXXX` is the **ID label**
