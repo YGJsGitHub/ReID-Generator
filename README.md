@@ -31,7 +31,7 @@ You can also add additional character models and generate their image.
 3. Open the project (GCC-Collector) property pages, `General/Windos SDK Version`, select **the latest win10 SDK** existed in your computer.
 
 
-4. Open `Property`->`Generate event`, add this flowing command in Postgenerative event.
+4. Open `Property`->`Generate event`, add this command in Postgenerative event.
 
  	`COPY "$(TargetPath)" "Your GTAV fold\scripts"`
 
