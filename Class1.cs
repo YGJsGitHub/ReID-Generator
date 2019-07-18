@@ -191,20 +191,26 @@ namespace ReID_Generator
         //Left for test
         void Test()
         {
-            //World.CreateVehicle(VehicleHash.TriBike, Game.Player.Character.GetOffsetInWorldCoords(new Vector3(0, 5, 0)));
-            Function.Call(Hash.SET_ENTITY_COORDS, Game.Player.Character, -1487.672, -1177.327, 2.202, 1, 0, 0, 1);
+            
         }
 
         //Capture one ped
         void capture(int n)
         {
+            //Check if the folder is exist
             bool existFlag = false;
+            //Image number counter
             int picNum = 0;
+            //Location iterator
             int locNum = 0;
-            Vector3 myPos = Game.Player.Character.Position;
-
-            Camera cam1 = Function.Call<Camera>(Hash.CREATE_CAM, "DEFAULT_SCRIPTED_CAMERA", true);
+            //Check if the camera is the first one
             bool firstCap = true;
+
+            //Create script camera
+            Vector3 myPos = Game.Player.Character.Position;
+            Camera cam1 = Function.Call<Camera>(Hash.CREATE_CAM, "DEFAULT_SCRIPTED_CAMERA", true);
+
+            //Weather Cycle
             foreach (Weather weaMode in Enum.GetValues(typeof(WeatherMode)))
             {
                 if(locNum >= 5)
@@ -215,9 +221,12 @@ namespace ReID_Generator
                 {
                     break;
                 }
+                //Location Cycle
                 Function.Call(Hash.SET_ENTITY_COORDS, Game.Player.Character, locations[locNum].posX, locations[locNum].posY, locations[locNum].posZ, 1, 0, 0, 1);
                 locNum++;
                 ChooseWeather(weaMode);
+
+                //Light Cycle
                 foreach (LightMode light in Enum.GetValues(typeof(LightMode)))
                 {
                     if ((existFlag == true) & (picNum == 0))
@@ -241,7 +250,6 @@ namespace ReID_Generator
                         //Set Camera Location
                         Vector3 camPos = Game.Player.Character.GetOffsetInWorldCoords(camAng * a);
                         Function.Call<bool>(Hash.SET_CAM_COORD, cam1.GetHashCode(), camPos.X, camPos.Y, camPos.Z);
-                        //UI.ShowSubtitle("Cam angle : " + Math.Acos(camAng.X).ToString());
 
                         //Point cam at actor
                         Function.Call(Hash.POINT_CAM_AT_COORD, cam1.GetHashCode(), Game.Player.Character.Position.X, Game.Player.Character.Position.Y, Game.Player.Character.Position.Z);
@@ -263,7 +271,6 @@ namespace ReID_Generator
 
                         angcnt++;
 
-                        //Bitmap catchBmp = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
                         Bitmap catchBmp = new Bitmap(350, 720);
                         Graphics g = Graphics.FromImage(catchBmp);
                         g.CopyFromScreen(new Point(Screen.AllScreens[0].Bounds.Width / 3 + 115, Screen.AllScreens[0].Bounds.Height / 7 + 40), new Point(0, 0), new Size(350, 720));
@@ -331,7 +338,6 @@ namespace ReID_Generator
                         //Set Camera Location
                         Vector3 camPos = Game.Player.Character.GetOffsetInWorldCoords(camAng * a);
                         Function.Call<bool>(Hash.SET_CAM_COORD, cam1.GetHashCode(), camPos.X, camPos.Y, camPos.Z);
-                        //UI.ShowSubtitle("Cam angle : " + Math.Acos(camAng.X).ToString());
 
                         //Point cam at actor
                         Function.Call(Hash.POINT_CAM_AT_COORD, cam1.GetHashCode(), Game.Player.Character.Position.X, Game.Player.Character.Position.Y, Game.Player.Character.Position.Z);
@@ -353,7 +359,6 @@ namespace ReID_Generator
 
                         angcnt++;
 
-                        //Bitmap catchBmp = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
                         Bitmap catchBmp = new Bitmap(350, 720);
                         Graphics g = Graphics.FromImage(catchBmp);
                         g.CopyFromScreen(new Point(Screen.AllScreens[0].Bounds.Width / 3 + 115, Screen.AllScreens[0].Bounds.Height / 7 + 40), new Point(0, 0), new Size(350, 720));
@@ -375,20 +380,9 @@ namespace ReID_Generator
         //Create specific ped
         void create()
         {
-            /*
-            //Get enum key by input value:Enum.GetName(typeof(**), **.key)
-            //string actorStr = Enum.GetName(typeof(PedHash), PedHash.Skidrow01AFM);
-            */
-
             this.tmpped = Game.Player.Character;
-            /*
-             * Change player model (TODO)
-            //Function.Call(Hash.SET_PLAYER_MODEL, Game.Player, PedHash.RussianDrunk);
-            */
-
             Function.Call(Hash.CHANGE_PLAYER_PED, Game.Player, World.CreatePed(PedHash.Trevor, Game.Player.Character.GetOffsetInWorldCoords(new Vector3(0, 5, 0))), true, true);
             tmpped.Delete();
-            //Game.Player.Character.AttachTo = actorped;
         }
 
         //Change menu
@@ -414,7 +408,6 @@ namespace ReID_Generator
             }
             else
             {
-                //Function.Call(Hash.SET_WEATHER_TYPE_NOW_PERSIST, "Raining");
                 Function.Call(Hash.SET_WEATHER_TYPE_NOW_PERSIST, Enum.GetName(typeof(Weather), weaMode));
                 this.weather = Enum.GetName(typeof(Weather), weaMode);
             }
