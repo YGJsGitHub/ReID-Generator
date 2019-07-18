@@ -36,7 +36,7 @@ You can also add additional character models and generate their image.
  	`COPY "$(TargetPath)" "Your GTAV fold\scripts"`
 
 
-5. Select the path where you want to save the image, and copy it in `TODO.cs` line `TODO`.
+5. Select the path where you want to save the image, and copy it in `Class1.cs` line `474`.
 
 	The datasets will be saved in path in format:`XXXX/XXXX_CXX_WXX_LXX.jpg`.
 
