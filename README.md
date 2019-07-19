@@ -25,7 +25,7 @@ You can also add additional character models and generate their image.
 1. Create a folder named `Scripts` under your GTAV root folder.
 
 
-2. Navigate to ReID Generator directory, open `TODO.sln` with Visual Studio.
+2. Navigate to ReID Generator directory, open `ReID_Generator.sln` with Visual Studio.
 
 
 3. Open the project (GCC-Collector) property pages, `General/Windos SDK Version`, select **the latest win10 SDK** existed in your computer.
