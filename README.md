@@ -1,6 +1,6 @@
 # ReID-Generator #
 
-![Example](http://lc-jhmawcyo.cn-n1.lcfile.com/b6860df80bbd1f1c7175/2019-07-19_114700.png)
+![Generator Example](http://lc-jhmawcyo.cn-n1.lcfile.com/b6860df80bbd1f1c7175/2019-07-19_114700.png)
 
 ReID(**Pesron Re-Identify**) Generator is a tool for generating ReID image datasets in GTA V. It's a custom mod of GTAV, written in **C#**.
 
