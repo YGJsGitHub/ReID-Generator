@@ -48,9 +48,23 @@ You can also add additional character models and generate their image.
 
 
 	-  `WXX` is the **weather label**
+		- `W00` : **ExtraSunny**
+		- `W01` : **Clouds**
+		- `W02` : **Smog**
+		- `W03` : **Foggy**
+		- `W04` : **Neutral**
+		- `W05` : **Blizzard**
+		- `W06` : **Snowlight**
 
 
 	-  `LXX` is the **light label**.
+		- `L00` : **Midnight**
+		- `L01` : **Dawn**
+		- `L02` : **Forenoon**
+		- `L03` : **Noon**
+		- `L04` : **Afternoon**
+		- `L05` : **Dusk**
+		- `L06` : **Night**
 
 
 5. Click `Build Solution`, the script `Re-IDGenerator.dll` will be generated in *../GTAV/Scripts*.
