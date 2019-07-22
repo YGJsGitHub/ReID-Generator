@@ -70,14 +70,14 @@ namespace ReID_Generator
         //Ped background
         Loction[] locations =
         {
-            new Loction{posX = -1426.068, posY = -1341.568, posZ = 3.724},//Beach
-            new Loction{posX = -89.805, posY = -1338.288, posZ = 29.152},//Factory
-            new Loction{posX = 51.268, posY = -444.344, posZ = 39.919},//Street1
-            new Loction{posX = -2080.352, posY = 1190.396, posZ = 290.490},//Mountain
-            new Loction{posX = 1083.522, posY = -411.249, posZ = 67.157},//Street2
+            new Loction{posX = -1426.068, posY = -1341.568, posZ = 3.724},      //Beach
+            new Loction{posX = -89.805, posY = -1338.288, posZ = 29.152},        //Factory
+            new Loction{posX = 51.268, posY = -444.344, posZ = 39.919},            //Street1
+            new Loction{posX = -2080.352, posY = 1190.396, posZ = 290.490},    //Mountain
+            new Loction{posX = 1083.522, posY = -411.249, posZ = 67.157},        //Street2
         };
 
-        //Useless ped
+        //Useless ped (including fish, dogs, cats, etc)
         int[] errHash = { 11, 12, 27, 35, 44, 54, 111, 122, 174, 175, 188, 189, 210, 233, 261, 264, 310, 331, 339, 453, 406, 422, 430, 446, 474, 475, 484, 485, 509, 522, 531, 577, 581, 617, 632, 643, 666, 742 };
 
         //Build function
@@ -88,7 +88,7 @@ namespace ReID_Generator
             GTA.MenuButton btnCaptureAllInOne = new MenuButton("CaptureAllInOne");
             btnCaptureAllInOne.Activated += delegate { CaptureAllInOne(); };
             GTA.MenuButton btnCapture = new MenuButton("Capture");
-            btnCapture.Activated += delegate { capture(999); };
+            btnCapture.Activated += delegate { capture(); };
             GTA.MenuButton btnCreate = new MenuButton("Create");
             btnCreate.Activated += delegate { create(); };
             GTA.MenuButton btnWeather = new MenuButton("Weather");
@@ -197,7 +197,7 @@ namespace ReID_Generator
         //Capture one ped
         void capture(int n)
         {
-            //Check if the folder is exist
+            //Check if the folder exist
             bool existFlag = false;
             //Image number counter
             int picNum = 0;
@@ -238,7 +238,7 @@ namespace ReID_Generator
                     int angcnt = 0;
                     foreach (Vector3 camAng in cams)
                     {
-                        string pathname = GetFoldPath((int)weaMode, (int)light, n, angcnt, ref existFlag);
+                        string pathname = GetFoldPath((int)weaMode, (int)light, n, locNum-1, angcnt, ref existFlag);
 
                         if ((existFlag == true) & (picNum == 0))
                         {
@@ -277,7 +277,7 @@ namespace ReID_Generator
 
                         catchBmp.Save(pathname);
                         UI.ShowSubtitle(pathname);
-                        WriteToFile(angcnt.ToString(), location, time, weather, angle, actorStr);
+                        WriteToFile(angcnt.ToString(), location, time, weather, angle, actorStr, Enum.GetName(typeof(LocMode), locNum-1).ToString());
                         Wait(1);
                     }
                 }
@@ -324,10 +324,10 @@ namespace ReID_Generator
                     int angcnt = 0;
                     foreach (Vector3 camAng in cams)
                     {
-                        string pathname = GetFoldPath((int)weaMode, (int)light, n, angcnt, ref existFlag);
-                        while((existFlag == true) & (picNum == 0))
+                        string pathname = GetFoldPath((int)weaMode, (int)light, n, locNum - 1, angcnt, ref existFlag);
+                        while ((existFlag == true) & (picNum == 0))
                         {
-                            pathname = GetFoldPath((int)weaMode, (int)light, n, angcnt, ref existFlag);
+                            pathname = GetFoldPath((int)weaMode, (int)light, n, locNum - 1, angcnt, ref existFlag);
                             n++;
                         }
                         
@@ -365,7 +365,7 @@ namespace ReID_Generator
 
                         catchBmp.Save(pathname);
                         UI.ShowSubtitle(pathname);
-                        WriteToFile(angcnt.ToString(), location, time, weather, angle, actorStr);
+                        WriteToFile(angcnt.ToString(), location, time, weather, angle, actorStr, Enum.GetName(typeof(LocMode), locNum - 1).ToString());
                         Wait(1);
                     }
                 }
@@ -443,7 +443,7 @@ namespace ReID_Generator
         }
 
         //Write log
-        void WriteToFile(string user, string location, string time, string weather, string angle, string actorped)
+        void WriteToFile(string user, string location, string time, string weather, string angle, string actorped, string address)
         {
             try
             {
@@ -461,7 +461,7 @@ namespace ReID_Generator
         }
 
         //Get ID save path
-        string GetFoldPath(int wea, int light, int n, int angcnt, ref bool exist)
+        string GetFoldPath(int wea, int light, int n, int loc, int angcnt, ref bool exist)
         {
             //Change to your pathname here↓
             string folderpath = "G:\\IMG\\" + n.ToString().PadLeft(4, '0');
@@ -476,7 +476,7 @@ namespace ReID_Generator
                 exist = true;
                 UI.ShowSubtitle("Folder already exist!");
             }
-            string weaCode, lightCode, foldpath;
+            string weaCode, lightCode, locCode, foldpath;
             switch (wea)
             {
                 case 0:
@@ -531,18 +531,34 @@ namespace ReID_Generator
                     lightCode = "00";
                     break;
             }
-            foldpath = folderpath + "\\" + n.ToString().PadLeft(4, '0') + "_C" + angcnt.ToString().PadLeft(2, '0') + "_W" + weaCode + "_L" + lightCode + ".jpg";
+            switch(loc)
+            {
+                case 0:
+                    locCode = "00";
+                    break;
+                case 1:
+                    locCode = "01";
+                    break;
+                case 2:
+                    locCode = "02";
+                    break;
+                case 3:
+                    locCode = "03";
+                    break;
+                case 4:
+                    locCode = "04";
+                    break;
+                default:
+                    locCode = "00";
+                    break;
+            }
+            foldpath = folderpath + "\\" + n.ToString().PadLeft(4, '0') + "_C" + angcnt.ToString().PadLeft(2, '0') + "_W" + weaCode + "_L" + lightCode + "_A" + locCode + ".jpg";
             return foldpath;
         }
 
         enum FunctionMode
         {
             Appearance, Weather,
-        }
-
-        enum AppearMode
-        {
-            Character, Cloth, Skin, Hair, Shape,
         }
 
         enum WeatherMode
@@ -566,6 +582,14 @@ namespace ReID_Generator
             Dusk = 19,
             Night = 20,
         }
+
+        enum LocMode
+        {
+            Beach = 0,
+            Factory = 1,
+            Street1 = 2,
+            Mountain = 3,
+            Street2 = 4,
+        }
     }
 }
-
