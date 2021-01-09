@@ -38,33 +38,33 @@ You can also add additional character models and generate their image.
 
 5. Select the path where you want to save the image, and copy it in `ReID_Generator.cs` line `474`.
 
-	The datasets will be saved in path in format:`XXXX/XXXX_CXX_WXX_LXX.jpg`.
+	The datasets will be saved in path in format:`XXXX/XXXX_cXX_wXX_lXX.jpg`.
 
 
 	-  `XXXX` is the **ID label**
 
 
-	-  `CXX` is **camera label**
+	-  `cXX` is **camera label**
 
 
-	-  `WXX` is the **weather label**
-		- `W00` : **ExtraSunny**
-		- `W01` : **Clouds**
-		- `W02` : **Smog**
-		- `W03` : **Foggy**
-		- `W04` : **Neutral**
-		- `W05` : **Blizzard**
-		- `W06` : **Snowlight**
+	-  `wXX` is the **weather label**
+		- `w00` : **Sunny**
+		- `w01` : **Clouds**
+		- `w02` : **Overcast**
+		- `w03` : **Foggy**
+		- `w04` : **Neutral**
+		- `w05` : **Blizzard**
+		- `w06` : **Snowlight**
 
 
-	-  `LXX` is the **light label**.
-		- `L00` : **Midnight**
-		- `L01` : **Dawn**
-		- `L02` : **Forenoon**
-		- `L03` : **Noon**
-		- `L04` : **Afternoon**
-		- `L05` : **Dusk**
-		- `L06` : **Night**
+	-  `lXX` is the **light label**.
+		- `l00` : **Midnight**
+		- `l01` : **Dawn**
+		- `l02` : **Forenoon**
+		- `l03` : **Noon**
+		- `l04` : **Afternoon**
+		- `l05` : **Dusk**
+		- `l06` : **Night**
 
 
 5. Click `Build Solution`, the script `Re-IDGenerator.dll` will be generated in *../GTAV/Scripts*.
