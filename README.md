@@ -89,12 +89,6 @@ Follow these steps to generate the ReID datasets:
 	* **Hour Back**:Set the game time an hour back.
 	* **Test**:Added the function you need.
 
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/1.gif)  
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/2.gif)  
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/3.gif)  
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/4.gif)  
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/5.gif)  
-![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/6.gif)  
 
 ### Appendix ##
 
@@ -133,22 +127,49 @@ The functional module design of Reid-Generator is generally divided into five mo
 1) Operation interface control module
 
 Menu rendering module: the built-in function is corresponding to the menu bar button, and the display rendering is carried out through NativeUI. After the user calls out the command, the operation menu is rendered in the upper left corner of the screen for subsequent function selection.
+
 Key binding module: Bind specific operations with keyboard keys, including: F5: operation interface call out 8: move up 2: move down 5: select ESC: back/exit INSERT: refresh/reload WASD: character control, etc.
+
 Top and bottom display module: display rendering through NativeUI, display the current coordinates and orientation of the character at the top, display the current generated data attributes and storage path at the bottom.
+
 2) System parameter management module
+
 This module manages the setup parameters of the REID-GENERATOR uniformly, loading it before it enters the main function and refreshing it continuously after the module is run.Specific parameters are as follows:
+
 Attribute control parameters: game time, light mode, weather mode, surrounding vehicle density, surrounding pedestrian density, story mode parameters, Object interaction parameters
+
 Camera control parameters: camera interval, capture time interval, camera Angle, camera rotation mode, camera update mode, capture location coordinate table
+
 Character model parameters: health, body type character position coordinates, character orientation coordinates, error character HASH table, character model HASH value, generation ID order
+
 Operation interface parameters: key and function table, nativeUI parameter table, local path parameters, interface refresh rate
+
 3) Camera Angle Control Module
+
 Camera control module: place the script camera at the specified coordinates, update the specified script camera, destroy the specified script camera.
+
 View control module: Set the specified script camera's Point of View (POV)
+
 4) Character model control module
+
 Character attribute control module: control the life value, body shape and movement of the character, easy to synthesize data capture.
+
 Character model update module: create/update the character model in the specified location, set the initial character orientation, and record the character model ID and generation order.
+
 5) Synthetic data acquisition module
+
 Single persona generation module: by setting different camera intervals, camera angles, persona attributes, lighting, weather and other parameters, the specified persona is synthesized data generation.
+
 All character generation module: on the basis of single character generation, through the fusion of various module functions, realize the generation of all synthesis data in one button, which generates the synthesis data set GPR700.
-4.2.2 Design of AddonPEDS ID Expansion Module
-The character model extension module is independent of the internal structure of the Reid-Generator, and it uses the external Unity3D model management tools OpenIV and PedSelector to realize the character model expansion by means of extended character model expansion to bypass the mechanism of hash index in the game.
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/1.gif)  
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/2.gif)  
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/3.gif)  
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/4.gif)  
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/5.gif)  
+
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/6.gif)  
