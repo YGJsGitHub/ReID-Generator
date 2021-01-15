@@ -89,6 +89,13 @@ Follow these steps to generate the ReID datasets:
 	* **Hour Back**:Set the game time an hour back.
 	* **Test**:Added the function you need.
 
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/1.gif)  
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/2.gif)  
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/3.gif)  
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/4.gif)  
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/5.gif)  
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/6.gif)  
+
 ### Appendix ##
 
 ##  ##
