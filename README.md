@@ -6,6 +6,8 @@ It can generate images of people with more than 700 original models, 7 weather, 
 
 You can also add additional character models and generate their image.
 
+![img](https://github.com/YGJsGitHub/ReID-Generator/blob/master/images/img1.jpg)
+
 ### Request ###
 
 ##  ##
